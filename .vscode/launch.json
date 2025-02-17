@@ -1,0 +1,32 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "craft_panel",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "craft_panel (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "craft_panel (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "exaroton_api",
+            "cwd": "packages/exaroton_api",
+            "request": "launch",
+            "type": "dart"
+        }
+    ]
+}
