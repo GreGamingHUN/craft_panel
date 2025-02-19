@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:exaroton_api/src/services/account_service.dart';
+import 'package:exaroton_api/src/services/server_service.dart';
 import 'package:http/http.dart' as http;
 
 import 'exceptions/api_exception.dart';
@@ -12,6 +13,8 @@ class ExarotonClient {
   ExarotonClient(this._token);
 
   late final AccountService accountService = AccountService(this);
+  late final ServerService serverService = ServerService(this);
+  
 
   Future<http.Response> request(
     String endpoint, {String method = "GET", Map<String, dynamic>? body}
@@ -26,7 +29,7 @@ class ExarotonClient {
 
     switch (method.toUpperCase()) {
       case "POST":
-        response = await _client.post(uri, headers: headers, body: body);
+        response = await _client.post(uri, headers: headers, body: jsonEncode(body));
       default:
         response = await _client.get(uri, headers: headers);
     }
@@ -37,4 +40,6 @@ class ExarotonClient {
 
     return response;
   }
+
+  
 }
