@@ -1,6 +1,12 @@
+import 'package:craft_panel/global/globals.dart';
+import 'package:craft_panel/routes/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences storage = await SharedPreferences.getInstance();
+  Globals.setExarotonClient(storage.getString("api") ?? "");
   runApp(const MainApp());
 }
 
@@ -9,12 +15,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp.router(
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
       ),
+      routerConfig: AppRouter.router,
     );
   }
 }

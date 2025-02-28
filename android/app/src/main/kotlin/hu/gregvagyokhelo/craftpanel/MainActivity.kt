@@ -1,4 +1,4 @@
-package com.example.craft_panel
+package hu.gregvagyokhelo.craftpanel
 
 import io.flutter.embedding.android.FlutterActivity
 
